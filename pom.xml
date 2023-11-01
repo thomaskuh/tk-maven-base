@@ -24,6 +24,7 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Logging - Prefer log4j2. -->
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-api</artifactId>
@@ -33,6 +34,17 @@
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
                 <version>2.21.1</version>
+            </dependency>
+            <!-- Logging - But if there's slf4j somewhere: force version 2 and use adapter. -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j2-impl</artifactId>
+                <version>2.21.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>2.0.9</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -142,15 +154,15 @@
                             <includes>
                                 <include>src/**/*.json</include>
                             </includes>
-                            <gson />
+                            <gson></gson>
                         </json>
                         <java>
                             <palantirJavaFormat>
                                 <version>2.38.0</version>
                                 <style>PALANTIR</style>
                             </palantirJavaFormat>
-                            <removeUnusedImports />
-                            <formatAnnotations />
+                            <removeUnusedImports></removeUnusedImports>
+                            <formatAnnotations></formatAnnotations>
                         </java>
                     </configuration>
                 </plugin>
