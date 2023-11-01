@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                              http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.kuhlins.maven</groupId>
     <artifactId>tk-maven-base</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>pom</packaging>
     <description>Common project baseline and configurations with latest versions @ 2023-11-01.</description>
 
     <scm>
         <connection>scm:git:git://github.com/thomaskuh/tk-maven-base.git</connection>
         <developerConnection>scm:git:git@github.com:thomaskuh/tk-maven-base.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>release/0.1</tag>
         <url>https://github.com/thomaskuh/tk-maven-base</url>
     </scm>
 
@@ -142,15 +142,15 @@
                             <includes>
                                 <include>src/**/*.json</include>
                             </includes>
-                            <gson></gson>
+                            <gson />
                         </json>
                         <java>
                             <palantirJavaFormat>
                                 <version>2.38.0</version>
                                 <style>PALANTIR</style>
                             </palantirJavaFormat>
-                            <removeUnusedImports></removeUnusedImports>
-                            <formatAnnotations></formatAnnotations>
+                            <removeUnusedImports />
+                            <formatAnnotations />
                         </java>
                     </configuration>
                 </plugin>
