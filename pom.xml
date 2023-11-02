@@ -22,6 +22,11 @@
         </repository>
     </distributionManagement>
 
+    <properties>
+        <!-- We cant have timestamp so we use parsable ISO 8601 format. -->
+        <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'Z'</maven.build.timestamp.format>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <!-- Logging - Prefer log4j2. -->
@@ -62,6 +67,25 @@
     </dependencyManagement>
 
     <build>
+        <!-- Configure resource plugin to only filter the one file with build properties. -->
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>x-build.properties</include>
+                    <include>x-build.txt</include>
+                </includes>
+            </resource>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>x-build.properties</exclude>
+                    <exclude>x-build.txt</exclude>
+                </excludes>
+            </resource>
+        </resources>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -154,15 +178,15 @@
                             <includes>
                                 <include>src/**/*.json</include>
                             </includes>
-                            <gson />
+                            <gson></gson>
                         </json>
                         <java>
                             <palantirJavaFormat>
                                 <version>2.38.0</version>
                                 <style>PALANTIR</style>
                             </palantirJavaFormat>
-                            <removeUnusedImports />
-                            <formatAnnotations />
+                            <removeUnusedImports></removeUnusedImports>
+                            <formatAnnotations></formatAnnotations>
                         </java>
                     </configuration>
                 </plugin>
