@@ -4,14 +4,14 @@
 
     <groupId>org.kuhlins.maven</groupId>
     <artifactId>tk-maven-base</artifactId>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.3</version>
     <packaging>pom</packaging>
     <description>Common project baseline and configurations with latest versions @ 2023-11-01.</description>
 
     <scm>
         <connection>scm:git:git://github.com/thomaskuh/tk-maven-base.git</connection>
         <developerConnection>scm:git:git@github.com:thomaskuh/tk-maven-base.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>release/0.3</tag>
         <url>https://github.com/thomaskuh/tk-maven-base</url>
     </scm>
 
@@ -178,15 +178,15 @@
                             <includes>
                                 <include>src/**/*.json</include>
                             </includes>
-                            <gson></gson>
+                            <gson />
                         </json>
                         <java>
                             <palantirJavaFormat>
                                 <version>2.38.0</version>
                                 <style>PALANTIR</style>
                             </palantirJavaFormat>
-                            <removeUnusedImports></removeUnusedImports>
-                            <formatAnnotations></formatAnnotations>
+                            <removeUnusedImports />
+                            <formatAnnotations />
                         </java>
                     </configuration>
                 </plugin>
