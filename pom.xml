@@ -4,14 +4,14 @@
 
     <groupId>org.kuhlins.maven</groupId>
     <artifactId>tk-maven-base</artifactId>
-    <version>0.3</version>
+    <version>0.4-SNAPSHOT</version>
     <packaging>pom</packaging>
     <description>Common project baseline and configurations with latest versions @ 2023-11-01.</description>
 
     <scm>
         <connection>scm:git:git://github.com/thomaskuh/tk-maven-base.git</connection>
         <developerConnection>scm:git:git@github.com:thomaskuh/tk-maven-base.git</developerConnection>
-        <tag>release/0.3</tag>
+        <tag>HEAD</tag>
         <url>https://github.com/thomaskuh/tk-maven-base</url>
     </scm>
 
