@@ -6,7 +6,7 @@
     <artifactId>tk-maven-base</artifactId>
     <version>0.4-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <description>Common project baseline and configurations with latest versions @ 2024-04-29.</description>
+    <description>Common project baseline and configurations with latest versions @ 2024-11-17.</description>
 
     <scm>
         <connection>scm:git:git://github.com/thomaskuh/tk-maven-base.git</connection>
@@ -25,6 +25,9 @@
     <properties>
         <!-- We cant have timestamp so we use parsable ISO 8601 format. -->
         <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'Z'</maven.build.timestamp.format>
+        <version.log4j>2.24.1</version.log4j>
+        <version.slf4j>2.0.16</version.slf4j>
+        <version.junit>5.11.3</version.junit>
     </properties>
 
     <dependencyManagement>
@@ -33,34 +36,34 @@
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-api</artifactId>
-                <version>2.23.1</version>
+                <version>${version.log4j}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
-                <version>2.23.1</version>
+                <version>${version.log4j}</version>
             </dependency>
             <!-- Logging - But if there's slf4j somewhere: force version 2 and use adapter. -->
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-slf4j2-impl</artifactId>
-                <version>2.23.1</version>
+                <version>${version.log4j}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>2.0.13</version>
+                <version>${version.slf4j}</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
-                <version>5.10.2</version>
+                <version>${version.junit}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
-                <version>5.10.2</version>
+                <version>${version.junit}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
@@ -108,22 +111,22 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.3.2</version>
+                    <version>3.4.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
-                    <version>3.1.2</version>
+                    <version>3.1.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>3.6.1</version>
+                    <version>3.8.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.4.1</version>
+                    <version>3.4.2</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -133,7 +136,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.2.5</version>
+                    <version>3.5.2</version>
                     <configuration>
                         <excludes>
                             <exclude>**/*IT.java</exclude>
@@ -144,7 +147,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>3.0.1</version>
+                    <version>3.1.1</version>
                     <configuration>
                         <tagNameFormat>release/@{project.version}</tagNameFormat>
                         <preparationGoals>clean verify</preparationGoals>
@@ -158,7 +161,7 @@
                 <plugin>
                     <groupId>io.fabric8</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
-                    <version>0.44.0</version>
+                    <version>0.45.1</version>
                 </plugin>
                 <!-- Common format not running automatically. Feel free to run manually:
                 - mvn spotless:check
@@ -182,7 +185,7 @@
                         </json>
                         <java>
                             <palantirJavaFormat>
-                                <version>2.44.0</version>
+                                <version>2.50.0</version>
                                 <style>PALANTIR</style>
                             </palantirJavaFormat>
                             <removeUnusedImports />
